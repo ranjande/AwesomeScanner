@@ -16,12 +16,16 @@ export default class App extends Component<{}> {
   componentDidMount(){
 
     setUserDB = () => {
-      const guest = Guestlist().map((usrDB) => {
-          AsyncStorage.setItem(usrDB.guest, JSON.stringify(usrDB));
-        });
+        AsyncStorage.getAllKeys((err, keys) => {
+          //alert('Test Database length: '+keys.length)
+          if(keys.length == 0){
+            const guest = Guestlist().map((usrDB) => {
+                AsyncStorage.setItem(usrDB.guest, JSON.stringify(usrDB));
+              });
+          }
+      });
     }
     setUserDB();
-
   }
 
 

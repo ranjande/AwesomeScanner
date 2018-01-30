@@ -345,7 +345,7 @@ const list = [
        no_head: 3,
        seniors: 0,
        cars: "",
-       joining: false
+       joining: true
    },
    {
        guest: "G030",
@@ -357,7 +357,7 @@ const list = [
        no_head: 2,
        seniors: 0,
        cars: "",
-       joining: false
+       joining: true
    },
    {
        guest: "G031",
