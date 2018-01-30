@@ -1,0 +1,4 @@
+Error:Execution failed for task ':react-native-camera:processDebugAndroidTestManifest'.
+> Manifest merger failed : Attribute meta-data#android.support.VERSION@value value=(26.0.2) from [com.android.support:exifinterface:26.0.2] AndroidManifest.xml:25:13-35
+  	is also present at [com.android.support:support-v4:26.0.1] AndroidManifest.xml:28:13-35 value=(26.0.1).
+  	Suggestion: add 'tools:replace="android:value"' to <meta-data> element at manifestMerger6509647464798029405.xml:23:9-25:38 to override.
