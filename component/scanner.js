@@ -121,22 +121,23 @@ export default class AwesomeScanner extends Component {
     let chkd_or_not = props.check_chkd;
     const usrDB = props.GuestData;
     const gst_ids = usrDB.guest;
-
+/*
       AsyncStorage.getAllKeys((err, keys) => {
         AsyncStorage.multiGet(keys, (err, stores) => {
           stores.map((result, i, store) => {
             // get at each store's key/value so you can work with it
             let key = store[i][0];
             let StoreDB = JSON.parse(store[i][1]);
-            chkd_or_not = StoreDB.joining;
+            //chkd_or_not = StoreDB.joining;
             if(key === gst_ids){
               chkd_or_not = StoreDB.joining;
-              return;
+              console.log(gst_ids+' ~~~~~ '+ chkd_or_not+ '~~~~~~~~~~ '+ StoreDB.joining);
+              return chkd_or_not;
             }
-            console.log(key+' ~~~~~ '+ chkd_or_not+ '~~~~~~~~~~ '+ StoreDB.joining);
           });
         });
       });
+*/
       return (
         <View style={{flexDirection:'row', paddingBottom: 10}}>
           <View style={{flexDirection: 'column', width: 250}}>
@@ -155,7 +156,7 @@ export default class AwesomeScanner extends Component {
             ,
             <CheckBox value={chkd_or_not} disabled={true} />
             )}
-            {/*<CheckBox value={chkd_or_not} disabled={true} />*/}
+            <CheckBox value={chkd_or_not} disabled={true} />
           </View>
       </View>
       );
