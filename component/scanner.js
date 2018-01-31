@@ -78,7 +78,7 @@ export default class AwesomeScanner extends Component {
                   <VerifyGuest GuestName={this.state.guest_name} GuestID={this.state.guest_id} isVerified={this.state._guestCount} />
                   <View style={{paddingTop: 5, paddingBottom: 5, marginBottom: 10, borderTopWidth: 2, marginLeft: 10, marginRight: 10, borderTopColor: 'red', height: 190}}>
                     <ScrollView>
-                      <GuestDataList isVerified={this.state._guestCount} GuestID={this.state.guest_id} />
+                      <GuestDataList isVerified={this.state._guestCount} GuestID={this.state.guest_id} GuestName={this.state.guest_name}/>
                     </ScrollView>
                   </View> 
               </View>
@@ -121,23 +121,7 @@ export default class AwesomeScanner extends Component {
     let chkd_or_not = props.check_chkd;
     const usrDB = props.GuestData;
     const gst_ids = usrDB.guest;
-/*
-      AsyncStorage.getAllKeys((err, keys) => {
-        AsyncStorage.multiGet(keys, (err, stores) => {
-          stores.map((result, i, store) => {
-            // get at each store's key/value so you can work with it
-            let key = store[i][0];
-            let StoreDB = JSON.parse(store[i][1]);
-            //chkd_or_not = StoreDB.joining;
-            if(key === gst_ids){
-              chkd_or_not = StoreDB.joining;
-              console.log(gst_ids+' ~~~~~ '+ chkd_or_not+ '~~~~~~~~~~ '+ StoreDB.joining);
-              return chkd_or_not;
-            }
-          });
-        });
-      });
-*/
+
       return (
         <View style={{flexDirection:'row', paddingBottom: 10}}>
           <View style={{flexDirection: 'column', width: 250}}>
@@ -156,7 +140,7 @@ export default class AwesomeScanner extends Component {
             ,
             <CheckBox value={chkd_or_not} disabled={true} />
             )}
-            <CheckBox value={chkd_or_not} disabled={true} />
+            {/*<CheckBox value={chkd_or_not} disabled={true} />*/}
           </View>
       </View>
       );
@@ -205,9 +189,10 @@ export default class AwesomeScanner extends Component {
     const GuestID = props.GuestID;
     const isVerified = parseInt(props.isVerified);
     const valid = false;
+    console.log(GuestName+'  '+GuestID);
     return (
       <View>
-        {renderElseIf(isVerified > 0, 
+        {renderElseIf(isVerified > 0 && GuestName != null && GuestID != null, 
           <GenuineGuest GuestName={GuestName} />
         ,
           <BadGuest isValid={valid} />
